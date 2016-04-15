@@ -186,7 +186,7 @@
 
           }).addTo(assetLayerGroup);
 
-          document.getElementById("data").innerHTML = dataActual;
+          document.getElementById("dataAct").innerHTML = dataActual;
           //document.getElementById("morts").innerHTML = mortsActuals;
           //if(mortsActuals === "sense pre")
           //totalMorts= Number(totalMorts) + Number(mortsActuals);
@@ -386,17 +386,12 @@
 <body>
   
   <aside id="menu">
-  <div  ><h1 class="title">Bombardejos</h1><h1 class="subtitle"> BCN 1936/39</h1></font>
+  <div  ><h1 class="title">Bombardejos <strong>BCN 1937/39</strong></h1></font>
    </div>
+   <div><h2 class="data" id="dataAct">19 de Gener de 1936</h2><h2 class="morts_dia">(<span id="morts">0 </span>)</h2></div>
    <hr class="line"></hr>
-   <div  ><h2 id="data">19 de Gener de 1936</h2></div>
-   
 
-  <div  class="plane" ><object style= "fill: #fff;" type="image/svg+xml" data="img/plane_opt.svg" class="plane"></object></div>
-  <div  class="plane" ><object style= "fill: #fff;" type="image/svg+xml" data="img/plane_opt.svg" class="plane"></object></div>
-  <div  class="plane" ><object style= "fill: #fff;" type="image/svg+xml" data="img/plane_opt.svg" class="plane"></object></div>
-
-  <div  class="counter"><span id="morts">0 </span> victimes</div>
+  <div  class="counter"><span id="total_morts">0 </span> victimes</div>
   <hr class="line"></hr>
    
 
@@ -405,7 +400,7 @@
         <source src="bombesTmp.mp4" type="video/mp4">
       </video>
   </div>
-
+<hr class="line"></hr>
  </aside>
   <aside id="timeline">
    <button onclick="funcButPlay()" id="ButtonPlay">PLAY</button> 
