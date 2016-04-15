@@ -74,6 +74,11 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
   <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
   <script src="leaflet.bouncemarker-master/bouncemarker.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="aishek-jquery-animateNumber-5f436e7/jquery.animateNumber.min.js"></script>
+
   <script src="refugis.js" type="text/javascript"></script>
   
   <script src="bombesMulti.js" type="text/javascript"></script>
@@ -81,6 +86,9 @@
 
     $(document).ready(
       function () {
+
+      
+
 
       window.map = L.map('map', {
           attributionControl:false,
@@ -183,27 +191,7 @@
         "Refuguis": refugiLay
       };
       L.control.layers(baseMaps, overlayMaps).addTo(map);
-      /*
-      L.geoJson(refugi, {
-
-        style: function (feature) {
-          return feature.properties && feature.properties.style;
-        },
-
-        onEachFeature: onEachFeature,
-
-        pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-            radius: 5,
-            fillColor: "#ff7800",
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          });
-        }
-      }).addTo(map);*/
-
+      
     
      
 
@@ -251,7 +239,7 @@
           }).addTo(assetLayerGroup);
 
           document.getElementById("data").innerHTML = dataActual;
-          document.getElementById("morts").innerHTML = mortsActuals;
+          //document.getElementById("morts").innerHTML = mortsActuals;
           //if(mortsActuals === "sense pre")
           //totalMorts= Number(totalMorts) + Number(mortsActuals);
           //document.getElementById("numTotal").innerHTML =totalMorts;
@@ -274,8 +262,12 @@
             onEachFeature: onEachFeature
           }).addTo(assetLayerGroup);
             assetLayerGroup.removeLayer(coorsLayer);
+            document.getElementById("morts").innerHTML = 0;
+            $('#morts').animateNumber({ number: mortsActuals });
+            
           }, 1600);
         }, 1500);
+        
 
       }
       
@@ -284,6 +276,9 @@
             start: startTime,
             end: endTime,
             onStart: function() {
+
+              var pos=(startTime - iniciFixe)/tempsEntre + 1;
+              $( "#slider" ).slider( "value", pos );
               imprimir(diaBomb, lat,lon, zoom);
             }
           });
@@ -294,87 +289,102 @@
       document.addEventListener("DOMContentLoaded", function () {
            // Create a popcorn instance by calling the Youtube player plugin
         var videoPop = Popcorn( "#ourvideo" );
-         
+        videoPop.pause();
+        window.butPause= true;
+        document.getElementById("ButtonPlay").innerHTML = "PLAY";
+
         //videoPop.play();
-        var inici= 9.8
-        var final=10.7
-        var tempsEntre=7;
+        window.iniciFixe= 9.8;
+        var inici= iniciFixe;
+        window.tempsEntre=7;
+        var final=inici + tempsEntre -0.5;
+        //TODO INICIAL POPUP
         simplificat(videoPop,inici, final, dia1937213, 41.401282, 2.179085);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1937529, 41.381260, 2.182768, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1937101, 41.384122, 2.194089, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia193811, 41.382750, 2.181187, 15);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938125, 41.374999, 2.169065, 15);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938130, 41.386049, 2.184796, 16);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia193835, 41.386077, 2.191147, 15);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         //17-3-1938
         simplificat(videoPop,inici, final, dia1938317A,  41.382615, 2.171243, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938317B,  41.382615, 2.171243, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938318,  41.382615, 2.171243, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia193864, 41.362932, 2.208380, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938719, 41.387446, 2.206292, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938819,  41.387446, 2.206292, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938924,  41.364195, 2.189822, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1938104,  41.364195, 2.189822, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia19381021,  41.382430, 2.185886, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia19381231,  41.382615, 2.171243, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1939121,   41.364195, 2.189822, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
         simplificat(videoPop,inici, final, dia1939124,  41.386167, 2.194698, 14);
         inici=inici + tempsEntre;
-        final= final + tempsEntre;
+        final= inici + tempsEntre -0.1;
+        //TODO FINAL POPCORN
+        window.videoProperties =videoPop;
+        $( "#slider" ).slider({
+          max:20,
+          min: 0,
+          stop: function( event, ui ) {
+            var calcul=iniciFixe+ (ui.value - 1) * tempsEntre;
+            videoPop.currentTime(calcul);
+
+          }
+
+        });
 
 
-        /*
-
-
-        simplificat(videoPop,inici, final, dia19381021, 41.382665, 2.189148, 15);
-        inici=inici + tempsEntre;
-        final= final + tempsEntre;
-        simplificat(videoPop,inici, final, dia19380819, 41.382665, 2.189148, 15);
-        inici=inici + tempsEntre;
-        final= final + tempsEntre;
-        //simplificat(videoPop,inici, final, dia19381004, 41.386077, 2.191147, 15);
-        /*
-        simplificat(videoPop,49.8, 50.7, dia19390124, 41.383380, 2.175644, 16);
-        simplificat(videoPop,54.8, 55.7, dia19371001, 41.383380, 2.175644, 16);
-        simplificat(videoPop,59.8, 60.7, dia19390121, 41.383380, 2.175644, 16);*/
         
       }, false);
+      function funcButPlay(){
+        if(butPause){
+          videoProperties.play();
+          butPause= false;
+          document.getElementById("ButtonPlay").innerHTML = "PAUSE";
+        }else{
+          videoProperties.pause();
+          butPause= true;
+          document.getElementById("ButtonPlay").innerHTML = "PLAY";
+        }
+      }
+
 
     </script>
 
@@ -397,12 +407,16 @@
    
 
 </div> 
-      <video height="270" width="450" id="ourvideo" controls>
+      <video height="270" width="450" id="ourvideo" >
         <source src="bombesTmp.mp4" type="video/mp4">
       </video>
   </div>
 
  </aside>
+  <aside id="timeline">
+   <button onclick="funcButPlay()" id="ButtonPlay">PLAY</button> 
+  <div id="slider" ></div>
+   </aside>
   <div style="position: relative;" id="map"></div>
 
 

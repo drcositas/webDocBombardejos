@@ -70,6 +70,17 @@
   width:33%;
 }
 
+#timeline {
+  padding: 10px;
+  position:absolute;
+  z-index:1;
+  background-color:black;
+  margin:10px;
+  left: 0px;
+  bottom: 15px;
+  width:50%;
+}
+
 h1{
   font-family: 'Titillium Web', sans-serif; 
   color: #ccc; 
