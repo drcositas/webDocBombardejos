@@ -121,7 +121,7 @@ def createJS():
                 #fout.write('        "causes": "'+str(algo)+'",\n')
                
                 
-                fout.write('        "morts": "'+str(info["MORTS"])+'",\n')
+                fout.write('        "morts": "'+str(info["MORTS_LLIBRE"])+'",\n')
                 fout.write('        "ferits": "'+str(info["FERITS"])+'",\n')
                 fout.write('        "hora": "'+str(info["HORA"])+'",\n')
                 fout.write('        "data": "'+ str(int(info["DIA"]))+" "+ mesosAny(int(info["MES"]))+' del '+str(info["ANY"])+'"\n')
@@ -272,14 +272,20 @@ def createJSMulti():
             fout.write('        "carrer": "'+dataInfo["CARRER"].iloc[0].encode('utf-8')+'",\n')
         fout.write('        "unitat": "'+dataInfo["UNITAT"].iloc[0].encode('utf-8')+'",\n')
         #algo = tipus[i][dataInfo(0["Numero dexpedient"]== tipus[i]["Numero dexpedient"]]["Descripcio tipus accident"].iloc(0)
-        #fout.write('        "causes": "'+str(algo)+'",\n')
-       
         try:
-            fout.write('        "morts": "'+str(int(float(dataInfo["MORTS"].iloc[0])))+'",\n')
-            fout.write('        "ferits": "'+str(int(float(dataInfo["FERITS"].iloc[0])))+'",\n')
+        #fout.write('        "causes": "'+str(algo)+'",\n')
+            fout.write('        "morts": "'+str(int(float(dataInfo["MORTS_LLIBRE"].iloc[0])))+'",\n')
         except:
-            fout.write('        "morts": "'+str(dataInfo["MORTS"].iloc[0])+'",\n')
+            fout.write('        "morts": "'+str(dataInfo["MORTS_LLIBRE"].iloc[0])+'",\n')
+        try:
+            
+            fout.write('        "ferits": "'+str(int(float(dataInfo["FERITS"].iloc[0])))+'",\n')
+            fout.write('        "morts_totals": "'+str(int(float(dataInfo["MORTS_TOTALS"].iloc[0])))+'",\n')
+        except:
+            #fout.write('        "morts": "'+str(dataInfo["MORTS"].iloc[0])+'",\n')
             fout.write('        "ferits": "'+str(dataInfo["FERITS"].iloc[0])+'",\n')
+            fout.write('        "morts_totals": "'+str(dataInfo["MORTS_TOTALS"].iloc[0])+'",\n')
+
         try:
             fout.write('        "hora": "'+str(dataInfo["HORA"].iloc[0])+'",\n')
         except:

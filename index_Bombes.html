@@ -143,6 +143,7 @@
       function onEachFeature(feature, layer) {
         mortsActuals =feature.properties.morts;
         dataActual = feature.properties.data;
+        totalMorts =feature.properties.morts_totals;
         if (feature.properties && feature.properties.popupContent) {
           popupContent += feature.properties.popupContent;
         }
@@ -162,8 +163,8 @@
         assetLayerGroup.clearLayers();
         map.setView([lat,lon], zoom);
         //dadesAqui=JSON.parse(diaBomb);
-        var mortsActuals;
-        var dataActual;
+        window.mortsActuals;
+        window.dataActual;
         setTimeout(function() {
 
           
@@ -192,7 +193,8 @@
           //totalMorts= Number(totalMorts) + Number(mortsActuals);
           //document.getElementById("numTotal").innerHTML =totalMorts;
 
-
+          document.getElementById("morts").innerHTML = 0;
+          $('#morts').animateNumber({ number: mortsActuals });
           setTimeout(function() {
             coorsLayer
             assetLayerGroup.clearLayers();
@@ -210,9 +212,8 @@
 
           }).addTo(assetLayerGroup);
             assetLayerGroup.removeLayer(coorsLayer);
-            document.getElementById("morts").innerHTML = 0;
-            $('#morts').animateNumber({ number: mortsActuals });
             
+            $('#total_morts').animateNumber({ number: totalMorts });
           }, 1600);
         }, 1500);
         
