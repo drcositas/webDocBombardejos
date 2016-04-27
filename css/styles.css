@@ -64,9 +64,10 @@
     position: absolute;
     z-index: 1;
     background-color: rgba(0,0,0,0.90);
-    margin: 20px;
+    margin: 10px;
     right: 0px;
     width: 450px;
+    display:none;
 
 }
 
@@ -83,11 +84,19 @@
 
 h1{
   font-family: 'Titillium Web', sans-serif; 
+  padding:10px 0;
+  text-align:center;
+}
+
+#menu h1{
   color: #000; 
   background-color:#fff;
-  padding:10px 0;
   margin-bottom:15px !important;
-  text-align:center;
+}
+
+#expand_bar h1{
+  color: #fff; 
+  
 }
 
 h2 {
@@ -154,6 +163,12 @@ h1.subtitle{
 
   left:0 !important;
   right:auto !important;
+
+}
+
+.leaflet-right .leaflet-control{
+  margin-top:0px !important;
+  padding:10px 0px !important;
 }
 
 .leaflet-control-layers{
@@ -175,14 +190,20 @@ h1.subtitle{
 }
 
 #ButtonPlay{
-      float: left;
-    margin-left: -78px;
+  float: left;
+  margin-left: -70px;
+  background-image: url("../img/bombardeigs_icons.png");
+  background-repeat: no-repeat;
+  width: 25px;
+  background-position: 0px -7px;
+  cursor: pointer;
+  height: 17px;
 }
 
 #timeline{
       padding: 10px;
     position: absolute;
-    z-index: 1;
+    z-index: 1111;
     background-color: black;
     margin: 10px;
     left: 0px;
@@ -191,3 +212,26 @@ h1.subtitle{
     /* margin-left: 72px; */
     padding-left: 100px;
 }
+
+#expand_bar {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 10px;
+  background-color:#000;
+  padding: 0px 10px;
+}
+
+#expand_bar h1{
+  float: left;
+}
+
+.expand_button{
+  float: left;
+  padding: 17px 5px;
+  margin-left: 10px;
+  background-image: url("../img/bombardeigs_icons.png");
+  background-position:-10px -7px;
+  background-repeat:no-repeat;
+}
+

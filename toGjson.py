@@ -192,11 +192,18 @@ def createJSMultiTotal():
         #fout.write('        "causes": "'+str(algo)+'",\n')
        
         try:
-            fout.write('        "morts": "'+str(int(float(dataInfo["MORTS"].iloc[0])))+'",\n')
-            fout.write('        "ferits": "'+str(int(float(dataInfo["FERITS"].iloc[0])))+'",\n')
+        #fout.write('        "causes": "'+str(algo)+'",\n')
+            fout.write('        "morts": "'+str(int(float(dataInfo["MORTS_LLIBRE"].iloc[0])))+'",\n')
         except:
-            fout.write('        "morts": "'+str(dataInfo["MORTS"].iloc[0])+'",\n')
+            fout.write('        "morts": "'+str(dataInfo["MORTS_LLIBRE"].iloc[0])+'",\n')
+        try:
+            
+            fout.write('        "ferits": "'+str(int(float(dataInfo["FERITS"].iloc[0])))+'",\n')
+            fout.write('        "morts_totals": "'+str(int(float(dataInfo["MORTS_TOTALS"].iloc[0])))+'",\n')
+        except:
+            #fout.write('        "morts": "'+str(dataInfo["MORTS"].iloc[0])+'",\n')
             fout.write('        "ferits": "'+str(dataInfo["FERITS"].iloc[0])+'",\n')
+            fout.write('        "morts_totals": "'+str(dataInfo["MORTS_TOTALS"].iloc[0])+'",\n')
         try:
             fout.write('        "hora": "'+str(dataInfo["HORA"].iloc[0])+'",\n')
         except:
