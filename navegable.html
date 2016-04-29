@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mapa 1</title>
+  <title>Navegable</title>
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="leaflet-search/leaflet-search.css" />
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
   <style type="text/css">
 
     #map{
@@ -160,6 +161,7 @@
       };
       
       L.control.scale().addTo(map);
+      L.control.zoom().addTo(map);
       martorell.addTo(map);
       //L.mask(latLngs).addTo(map);
 
@@ -268,7 +270,7 @@
     </script>
 
 </head>
-<body>
+<body class="navegable">
   <div  id="map"></div>
 </body>
     

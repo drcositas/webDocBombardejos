@@ -165,16 +165,22 @@ h1.subtitle{
 
 
 
-.leaflet-right{
+.webdoc .leaflet-right{
 
   left:0 !important;
   right:auto !important;
+}
 
+
+
+ .leaflet-right .leaflet-control{
+  margin-top:0px !important;
+  padding:10px 0px !important;
 }
 
 .leaflet-right .leaflet-control{
-  margin-top:0px !important;
-  padding:10px 0px !important;
+
+  margin-right:20px;
 }
 
 .leaflet-control-layers{
@@ -194,6 +200,17 @@ h1.subtitle{
   width:200px !important;
   font-size:18px;
 }
+
+.leaflet-control-zoom a, .leaflet-control-zoom a:hover{
+  width:60px;
+  height:60px;
+  background-color:#000;
+  color:#fff;
+  line-height: 60px;
+  border-radius:0px !important;
+}
+
+
 
 #ButtonPlay{
   float: left;
@@ -229,6 +246,7 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
   background-color:#000;
   padding: 0px 10px;
   box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  margin-left: 80px;
 }
 
 #expand_bar h1{
@@ -236,13 +254,20 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 .expand_button{
-  float: left;
-  padding: 14px 13px;
-  margin-left: 10px;
-  background-image: url("../img/bombardeigs_icons.png");
-  background-position: -46px 0px;
-  background-repeat: no-repeat;
-  margin-top:10px;
-  cursor:pointer;
+      padding: 14px 13px;
+    margin-left: 10px;
+    background-image: url("../img/bombardeigs_icons.png");
+    background-position: -46px 0px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    width: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
+
+
 
