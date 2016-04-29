@@ -60,15 +60,21 @@
 
 
 #menu {
-    padding: 20px;
-    position: absolute;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.90);
-    margin: 10px;
-    right: 0px;
-    width: 450px;
-    display:none;
 
+    z-index: 1;
+    position: absolute;
+    max-width: 100%;
+    right: 0px;
+}
+
+.menu-container{
+    position: relative;
+    z-index: 1111;
+    margin: 10px;
+    width: auto;
+    padding: 20px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    background-color: #000;
 }
 
 #timeline {
@@ -84,7 +90,7 @@
 
 h1{
   font-family: 'Titillium Web', sans-serif; 
-  padding:10px 0;
+  padding:10px 5px;
   text-align:center;
 }
 
@@ -102,7 +108,7 @@ h1{
 h2 {
   font-family: 'Titillium Web', sans-serif; 
   color: #fff;
-  font-size:38px;
+  font-size:32px;
   margin:0;
   font-weight:normal;
 }
@@ -200,26 +206,29 @@ h1.subtitle{
   height: 17px;
 }
 
+.timeline-container{
+position: absolute;
+width: 100%;
+bottom: 10px;
+}
+
 #timeline{
-      padding: 10px;
-    position: absolute;
-    z-index: 1111;
-    background-color: black;
-    margin: 10px;
-    left: 0px;
-    bottom: 15px;
-    width: 90%;
-    /* margin-left: 72px; */
-    padding-left: 100px;
+position: relative;
+z-index: 1111;
+margin: 10px;
+width: auto;
+padding-left: 100px;
+box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 #expand_bar {
   position: absolute;
   z-index: 1;
-  right: 20px;
+  right: 10px;
   top: 10px;
   background-color:#000;
   padding: 0px 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 #expand_bar h1{
@@ -228,10 +237,12 @@ h1.subtitle{
 
 .expand_button{
   float: left;
-  padding: 17px 5px;
+  padding: 14px 13px;
   margin-left: 10px;
   background-image: url("../img/bombardeigs_icons.png");
-  background-position:-10px -7px;
-  background-repeat:no-repeat;
+  background-position: -46px 0px;
+  background-repeat: no-repeat;
+  margin-top:10px;
+  cursor:pointer;
 }
 
