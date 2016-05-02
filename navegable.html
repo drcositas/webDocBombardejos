@@ -143,12 +143,13 @@
       for (i=0; i<coordinates.length; i++) {
           latLngs.push(new L.LatLng(coordinates[i][1], coordinates[i][0]));
       }
+      window.maskRetall=L.mask(latLngs);
 
       map.on('baselayerchange', function(e) {
         if (e.name === "Antic") {
-          L.mask(latLngs).addTo(map);
+          maskRetall.addTo(map);
         }else{
-          map.removeLayer(L.mask(latLngs));
+          map.removeLayer(maskRetall);
         }
       });
 
@@ -162,10 +163,14 @@
       
       L.control.scale().addTo(map);
       L.control.zoom().addTo(map);
+      maskRetall.addTo(map);
       martorell.addTo(map);
       //L.mask(latLngs).addTo(map);
 
-
+      function positionSearch(latlng, title, map) {
+	//map.fitBounds( latlng.layer.getBounds() );
+		map.setView(latlng, 16); // access the zoom
+	}
 
     //SEARCH
       var searcherControl =new L.Control.Search({
@@ -173,7 +178,8 @@
       jsonpParam: 'json_callback',
       propertyName: 'display_name',
       propertyLoc: ['lat','lon'],
-      circleLocation: true,
+      moveToLocation: positionSearch,
+      circleLocation: false,
       markerLocation: true,      
       autoType: false,
       autoCollapse: true,
@@ -183,20 +189,27 @@
 
       
 
-      window.bombIcon = L.icon({
-        iconUrl: 'img/bomb.png',
-        iconSize: [20, 30],
-        iconAnchor: [20, 30],
+
+      window.holeBombIcon = L.icon({
+        iconUrl: 'img/hole.png',
+        iconSize: [20, 20],
+        iconAnchor: [20, 20],
         popupAnchor: [0, -28]
       });
-      window.expIcon = L.icon({
-        iconUrl: 'img/explosion.png',
-        iconSize: [20, 30],
-        iconAnchor: [20, 30],
+      window.refugiIcon = L.icon({
+        iconUrl: 'img/tunnel.png',
+        iconSize: [15, 15],
+        iconAnchor: [15, 15],
         popupAnchor: [0, -28]
       });
+
+      function onEachFeatureBomb(feature, layer) {
+        var popupContent = "Data: "+feature.properties.data+"<br>Hora: "+feature.properties.hora+"";
+
         
 
+        layer.bindPopup(popupContent);
+      }
       function onEachFeature(feature, layer) {
         var popupContent = "<p>I started out as a GeoJSON " +
             feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
@@ -208,6 +221,7 @@
         layer.bindPopup(popupContent);
       }
 
+
       var refugiLay = L.layerGroup();
       var refuguis = L.geoJson(refugi, {
 
@@ -218,15 +232,14 @@
         onEachFeature: onEachFeature,
 
         pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-            radius: 5,
-            fillColor: "#ff7800",
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          });
+              var markerBombs= L.marker(latlng, {
+                icon: refugiIcon
+                
+
+              });
+              return markerBombs;
         }
+        
       }).addTo(refugiLay);
       var bombLay = L.layerGroup();
       var bombesPunts = L.geoJson(bombesMulti, {
@@ -235,18 +248,17 @@
           return feature.properties && feature.properties.style;
         },
 
-        onEachFeature: onEachFeature,
+        onEachFeature: onEachFeatureBomb,
 
         pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-            radius: 5,
-            fillColor: "#00ff00",
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          });
+              var markerBombs= L.marker(latlng, {
+                icon: holeBombIcon
+                
+
+              });
+              return markerBombs;
         }
+        
       }).addTo(bombLay);
 
       var overlayMaps = {
