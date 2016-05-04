@@ -14,6 +14,7 @@ var refugi ={
             "properties": {
                 "name": "003/09",
                 "Codi": "003/09",
+                "popup" : "BLABLABLABLA",
                 "Nom": "",
                 "Adreça": "Tibidabo, Avinguda. 8-18",
                 "Resultats": "Negatius. Estratigrafia no exhaurida"
@@ -33,6 +34,7 @@ var refugi ={
                 "name": "004/09",
                 "Codi": "004/09",
                 "Nom": "",
+                "popup" : "BLABLABLABLA",
                 "Adreça": "Banys Vells, Carrer. 6",
                 "Resultats": "Positius. Estratigrafia no exhaurida"
             }
@@ -2754,6 +2756,7 @@ var refugi ={
             "properties": {
                 "name": "REFUGI ANTIAERI R.0034",
                 "NOM": "REFUGI ANTIAERI R.0034",
+                "popup" : "BLABLABLABLA",
                 "Adreça": "Comte Borrell, Carrer. 236-244",
                 "Districte": "L'Eixample"
             }

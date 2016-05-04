@@ -196,8 +196,14 @@
         iconAnchor: [20, 20],
         popupAnchor: [0, -28]
       });
-      window.refugiIcon = L.icon({
+      window.refugiDestacatIcon = L.icon({
         iconUrl: 'img/tunnel.png',
+        iconSize: [15, 15],
+        iconAnchor: [15, 15],
+        popupAnchor: [0, -28]
+      });
+      window.refugiIcon = L.icon({
+        iconUrl: 'img/tunnelBlack.png',
         iconSize: [15, 15],
         iconAnchor: [15, 15],
         popupAnchor: [0, -28]
@@ -211,14 +217,13 @@
         layer.bindPopup(popupContent);
       }
       function onEachFeature(feature, layer) {
-        var popupContent = "<p>I started out as a GeoJSON " +
-            feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+        
 
-        if (feature.properties && feature.properties.popupContent) {
-          popupContent += feature.properties.popupContent;
+        if (feature.properties && feature.properties.popup) {
+          var popupContent = "";
+          popupContent = feature.properties.popup;
+          layer.bindPopup(popupContent);
         }
-
-        layer.bindPopup(popupContent);
       }
 
 
@@ -232,11 +237,19 @@
         onEachFeature: onEachFeature,
 
         pointToLayer: function (feature, latlng) {
-              var markerBombs= L.marker(latlng, {
-                icon: refugiIcon
-                
+              if (feature.properties && feature.properties.popup) {
+                var markerBombs= L.marker(latlng, {
+                  icon: refugiDestacatIcon  
+                  
 
-              });
+                });
+              }else{
+                var markerBombs= L.marker(latlng, {
+                  icon: refugiIcon
+                  
+
+                });
+              }
               return markerBombs;
         }
         

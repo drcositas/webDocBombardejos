@@ -229,12 +229,12 @@
           }).addTo(assetLayerGroup);
 
           document.getElementById("dataAct").innerHTML = dataActual;
+          document.getElementById("mort_dia").innerHTML = '(<span id="morts">0 </span>)';
           //document.getElementById("morts").innerHTML = mortsActuals;
           //if(mortsActuals === "sense pre")
           //totalMorts= Number(totalMorts) + Number(mortsActuals);
           //document.getElementById("numTotal").innerHTML =totalMorts;
 
-          document.getElementById("morts").innerHTML = 0;
           $('#morts').animateNumber({ number: mortsActuals });
           setTimeout(function() {
             coorsLayer
@@ -284,6 +284,9 @@
               $( "#slider" ).slider( "value", 0 );
               assetLayerGroup.clearLayers();
               foratLayerGroup.clearLayers();
+              document.getElementById("mort_dia").innerHTML = '(<span id="morts">0 </span>)';
+              document.getElementById("total_morts").innerHTML = 0;
+              document.getElementById("dataAct").innerHTML ="19 de Gener de 1936";
               map.setView([41.386910, 2.193483], 13);
             }
           });
@@ -313,6 +316,8 @@
 
                 }).addTo(foratLayerGroup);
               }
+            document.getElementById("mort_dia").innerHTML = " ";
+            document.getElementById("dataAct").innerHTML =" ";
             totalMorts = 2404;
             $('#total_morts').animateNumber({ number: totalMorts });
             map.setView([41.386910, 2.193483], 13);
@@ -471,7 +476,7 @@ function responsive(){
   <div class="menu-container">
   <div onclick="hideMenu()"><h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1></font>
    </div>
-   <div><h2 class="data" id="dataAct">19 de Gener de 1936</h2><h2 class="morts_dia">(<span id="morts">0 </span>)</h2></div>
+   <div><h2 class="data" id="dataAct">19 de Gener de 1936</h2><h2 class="morts_dia" id="mort_dia">(<span id="morts">0 </span>)</h2></div>
    <hr class="line"></hr>
 
   <div  class="counter"><span id="total_morts">0 </span> victimes</div>
