@@ -75,6 +75,7 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
   <script src="leaflet-search/leaflet-search.js" type="text/javascript"></script>
+  <script src="javascript/refugisDestacats.js" type="text/javascript"></script>
   <script src="javascript/refugis.js" type="text/javascript"></script>
   <script src="javascript/bombesMultiTotes.js" type="text/javascript"></script>
   <script src="javascript/retallBcn.js" type="text/javascript"></script>
@@ -83,7 +84,7 @@
     $(document).ready(
       function () {
       var southWest = L.latLng(41.330962, 2.074388),
-          northEast = L.latLng( 41.442923, 2.247523),
+          northEast = L.latLng( 41.465764, 2.277092),
           bounds = L.latLngBounds(southWest, northEast);
 
       window.map = L.map('map', {
@@ -218,17 +219,37 @@
       }
       function onEachFeature(feature, layer) {
         
-
-        if (feature.properties && feature.properties.popup) {
           var popupContent = "";
-          popupContent = feature.properties.popup;
-          layer.bindPopup(popupContent);
-        }
+          popupContent = feature.properties.popUpInfo;
+          var customOptions =
+              {
+              'maxWidth': '500',
+              'className' : 'custom'
+              };
+          layer.bindPopup(popupContent,customOptions);
+
       }
 
 
       var refugiLay = L.layerGroup();
-      var refuguis = L.geoJson(refugi, {
+      L.geoJson(refugi, {
+
+        style: function (feature) {
+          return feature.properties && feature.properties.style;
+        },
+
+        pointToLayer: function (feature, latlng) {
+                var markerBombs= L.marker(latlng, {
+                  icon: refugiIcon
+                  
+
+                });
+              
+              return markerBombs;
+        }
+        
+      }).addTo(refugiLay);
+      L.geoJson(refugiDestacat, {
 
         style: function (feature) {
           return feature.properties && feature.properties.style;
@@ -237,19 +258,12 @@
         onEachFeature: onEachFeature,
 
         pointToLayer: function (feature, latlng) {
-              if (feature.properties && feature.properties.popup) {
+              
                 var markerBombs= L.marker(latlng, {
                   icon: refugiDestacatIcon  
                   
 
                 });
-              }else{
-                var markerBombs= L.marker(latlng, {
-                  icon: refugiIcon
-                  
-
-                });
-              }
               return markerBombs;
         }
         
