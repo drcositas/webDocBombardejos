@@ -1,7 +1,7 @@
 var refugi ={
     "type": "FeatureCollection",
     "features": [
-        
+
         {
             "type": "Feature",
             "geometry": {
@@ -16,7 +16,6 @@ var refugi ={
                 "name": "004/09",
                 "Codi": "004/09",
                 "Nom": "",
-                "popup" : "BLABLABLABLA",
                 "Adreça": "Banys Vells, Carrer. 6",
                 "Resultats": "Positius. Estratigrafia no exhaurida"
             }
@@ -5701,7 +5700,7 @@ var refugi ={
                 "Districte": "L'Eixample"
             }
         },
-        
+
         {
             "type": "Feature",
             "geometry": {
@@ -6260,23 +6259,6 @@ var refugi ={
                 "name": "REFUGI ANTIAERI R.0266",
                 "NOM": "REFUGI ANTIAERI R.0266",
                 "Adreça": "Escorial, Carrer.",
-                "Districte": "Gràcia"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2.15825517064089,
-                    41.4027032243983,
-                    0
-                ]
-            },
-            "properties": {
-                "name": "REFUGI ANTIAERI R.0267",
-                "NOM": "REFUGI ANTIAERI R.0267",
-                "Adreça": "Revolució de Setembre de 1868, Plaça.",
                 "Districte": "Gràcia"
             }
         },

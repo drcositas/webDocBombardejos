@@ -17,27 +17,27 @@
        height: 100%;
         background:white;
     }
-      
+
       body{
-        margin:0px;   
+        margin:0px;
           height:100%;
           width:100%
       }
-      
+
       html{
-          margin:0px;   
+          margin:0px;
           height:100%;
           width:100%
-          
+
       }
 
       .leaflet-control-layers{
           top: 10px;
           border-radius:0px;
           width:60px;
-          bottom:35px;     
+          bottom:35px;
       }
-      
+
       .leaflet-control-zoom leaflet-bar leaflet-control{
           border-radius:0px;
       }
@@ -59,12 +59,12 @@
           text-decoration:none;
           color:black;
           display:block;
-          
+
       }
 
       .rc{
           width:13px;
-          margin-right:5px;    
+          margin-right:5px;
       }
 
   </style>
@@ -84,7 +84,7 @@
     $(document).ready(
       function () {
       var southWest = L.latLng(41.330962, 2.074388),
-          northEast = L.latLng( 41.465764, 2.277092),
+          northEast = L.latLng( 41.482006, 2.272672),
           bounds = L.latLngBounds(southWest, northEast);
 
       window.map = L.map('map', {
@@ -110,7 +110,7 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       });
-      
+
 
       // Tallat------------------------
       L.Mask = L.Polygon.extend({
@@ -124,14 +124,14 @@
         },
 
         initialize: function (latLngs, options) {
-              
+
           var outerBoundsLatLngs = [
             this.options.outerBounds.getSouthWest(),
             this.options.outerBounds.getNorthWest(),
             this.options.outerBounds.getNorthEast(),
             this.options.outerBounds.getSouthEast()
           ];
-              L.Polygon.prototype.initialize.call(this, [outerBoundsLatLngs, latLngs], options);  
+              L.Polygon.prototype.initialize.call(this, [outerBoundsLatLngs, latLngs], options);
         },
 
       });
@@ -161,7 +161,7 @@
         "Mapa": OpenStreetMap_BlackAndWhite,
         "Satel·lit": Esri_WorldImagery
       };
-      
+
       L.control.scale().addTo(map);
       L.control.zoom().addTo(map);
       maskRetall.addTo(map);
@@ -181,14 +181,14 @@
       propertyLoc: ['lat','lon'],
       moveToLocation: positionSearch,
       circleLocation: false,
-      markerLocation: true,      
+      markerLocation: true,
       autoType: false,
       autoCollapse: true,
       minLength: 2
     }) ;
       map.addControl( searcherControl);
 
-      
+
 
 
       window.holeBombIcon = L.icon({
@@ -213,12 +213,12 @@
       function onEachFeatureBomb(feature, layer) {
         var popupContent = "Data: "+feature.properties.data+"<br>Hora: "+feature.properties.hora+"";
 
-        
+
 
         layer.bindPopup(popupContent);
       }
       function onEachFeature(feature, layer) {
-        
+
           var popupContent = "";
           popupContent = feature.properties.popUpInfo;
           var customOptions =
@@ -241,13 +241,13 @@
         pointToLayer: function (feature, latlng) {
                 var markerBombs= L.marker(latlng, {
                   icon: refugiIcon
-                  
+
 
                 });
-              
+
               return markerBombs;
         }
-        
+
       }).addTo(refugiLay);
       L.geoJson(refugiDestacat, {
 
@@ -258,15 +258,15 @@
         onEachFeature: onEachFeature,
 
         pointToLayer: function (feature, latlng) {
-              
+
                 var markerBombs= L.marker(latlng, {
-                  icon: refugiDestacatIcon  
-                  
+                  icon: refugiDestacatIcon
+
 
                 });
               return markerBombs;
         }
-        
+
       }).addTo(refugiLay);
       var bombLay = L.layerGroup();
       var bombesPunts = L.geoJson(bombesMulti, {
@@ -280,12 +280,12 @@
         pointToLayer: function (feature, latlng) {
               var markerBombs= L.marker(latlng, {
                 icon: holeBombIcon
-                
+
 
               });
               return markerBombs;
         }
-        
+
       }).addTo(bombLay);
 
       var overlayMaps = {
@@ -294,17 +294,17 @@
       };
       L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-      
 
-    
 
-      
+
+
+
 
 
 	});
 
 
-    
+
 
     </script>
 
@@ -312,6 +312,5 @@
 <body class="navegable">
   <div  id="map"></div>
 </body>
-    
-</html>
 
+</html>

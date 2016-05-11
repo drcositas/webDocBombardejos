@@ -7,7 +7,7 @@ var refugiDestacat ={
                 "type": "Point",
                 "coordinates": [
                     2.135610,
-                    41.411778, 
+                    41.411778,
                     0
                 ]
             },
@@ -52,14 +52,14 @@ var refugiDestacat ={
                 "type": "Point",
                 "coordinates": [
                 	2.141190,
-                	41.436880, 
+                	41.436880,
                     0
                 ]
             },
             "properties": {
                 "Nom": "REFUGI El Palau de les Heures",
                 "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI El Palau de les Heures</font><br><img src="http://1.bp.blogspot.com/-sNNdMvQXVtw/U7-7ebVll2I/AAAAAAAACho/xRdOt9dKciM/s1600/Refugi+de+les+Heures+002.JPG" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2014/07/objectiu-bombardejar-el-palau-de-les.html#4287781600839747983">Més informació.</a>'
-			}            
+			}
         },
         {
             "type": "Feature",
@@ -82,7 +82,7 @@ var refugiDestacat ={
                 "type": "Point",
                 "coordinates": [
                 	2.173111,
-                    41.395008, 
+                    41.395008,
                     0
                 ]
             },
@@ -166,7 +166,40 @@ var refugiDestacat ={
                 "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI 200 (Pl Valentí Almirall)</font><br><img src="http://2.bp.blogspot.com/-cr-ESstYsyg/TnaFEnN5VaI/AAAAAAAAAfA/hJHYLAZluPM/s640/Refugi+pla%25C3%25A7a+Valenti+Almirall+128.jpg" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2011/09/refugi-de-la-placa-valenti-almirall-el.html#2528399642899446080">Més informació.</a>'
 
             }
-        }   
+
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.15825517064089,
+                    41.4027032243983,
+                    0
+                ]
+            },
+            "properties": {
+                "NOM": "REFUGI 267 (Pl. Revolució)",
+                "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI 267 (Pl. Revolució)</font><br><img src="http://2.bp.blogspot.com/-GFjWo0A0SkI/TgkHhkg0EwI/AAAAAAAAAQc/jDIiYyEfnjg/s640/2DI015.JPG" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2011/06/lobertura-del-refugi-antiaeri-de-la.html#7098502114414393774">Més informació.</a>'
+
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.189615,
+                    41.413932,
+                    0
+                ]
+            },
+            "properties": {
+                "NOM": "REFUGI c. Mallorca 662",
+                "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI c. Mallorca 66</font><br><img src="http://2.bp.blogspot.com/_riL4OR_p8Y8/TSYjWttSTSI/AAAAAAAAAFQ/nqdQe0Waoqk/s640/Refugi+Mallorca+662+%2528132%2529.JPG" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2011/01/el-refugi-del-carrer-mallorca-662.html#2474793839152640566">Més informació.</a>'
+
+            }
+        }
 
 
     ]
