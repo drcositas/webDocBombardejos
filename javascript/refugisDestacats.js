@@ -43,7 +43,7 @@ var refugiDestacat ={
             },
             "properties": {
                 "Nom": "REFUGI Societat Cultural i Esportiva La Lira",
-                "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI Societat Cultural i Esportiva La Lira</font><br><img src="http://1.bp.blogspot.com/-pf9LBquAQv4/VHpesZ0Yu8I/AAAAAAAADQE/oldmkrPdjWI/s1600/IMG_1890.JPG" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2012/09/refugi-antiaeri-de-la-societat-coral-la.html#3036458687896436084">Més informació.</a><br><a href="http://refugisantiaerisdebarcelona.blogspot.com.es/2014/11/es-recupera-amb-tot-lexplendor-el.html#5020581667753171504">Reforma.</a>'
+                "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI Societat Cultural i Esportiva La Lira</font><br><img src="http://1.bp.blogspot.com/-pf9LBquAQv4/VHpesZ0Yu8I/AAAAAAAADQE/oldmkrPdjWI/s1600/IMG_1890.JPG" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2012/09/refugi-antiaeri-de-la-societat-coral-la.html#3036458687896436084">Més informació.</a><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2014/11/es-recupera-amb-tot-lexplendor-el.html#5020581667753171504">Reforma.</a>'
             }
         },
         {
@@ -166,7 +166,7 @@ var refugiDestacat ={
                 "popUpInfo": '<font style="size: 25px; font-weight: bold;">REFUGI 200 (Pl Valentí Almirall)</font><br><img src="http://2.bp.blogspot.com/-cr-ESstYsyg/TnaFEnN5VaI/AAAAAAAAAfA/hJHYLAZluPM/s640/Refugi+pla%25C3%25A7a+Valenti+Almirall+128.jpg" style="width:304px;height:228px;"><br><a target="_blank" href="http://refugisantiaerisdebarcelona.blogspot.com.es/2011/09/refugi-de-la-placa-valenti-almirall-el.html#2528399642899446080">Més informació.</a>'
 
             }
-        }
+        }   
 
 
     ]
