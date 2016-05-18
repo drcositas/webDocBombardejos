@@ -262,6 +262,7 @@
               document.getElementById('typewriter').innerHTML = "";
               $( "#slider" ).slider( "value", diaBomb+1 );
               imprimir(diaBomb, posicions);
+              document.getElementById('typewriter').innerHTML = "";
 
             }
           });
@@ -320,7 +321,7 @@
               end: 6,
               onStart: function() {
                   //typewrite
-                  var str = "hi ha perill de bombardeig.",
+                  var str = 'hi ha perill de <font color="red">bombardeig</font>.',
                       i = 0,
                       isTag,
                       text;
@@ -435,8 +436,8 @@
       function finalVideo(popTime, startTime, endTime){
           //TODO Zoom mobil
         popTime.code({
-            start: startTime,
-            end: endTime,
+            start: 168,
+            end: 174,
             onStart: function() {
                 document.getElementById('typewriter').innerHTML = "";
               $( "#slider" ).slider( "value", 20 );
@@ -458,6 +459,7 @@
                 }).addTo(foratLayerGroup);
               }
             document.getElementById("dataAct").innerHTML =" ";
+            document.getElementById('typewriter').innerHTML = "";
             totalMorts = 2404;
             $('#total_morts').animateNumber({ number: totalMorts });
             map.setView([41.386910, 2.193483], 13);
@@ -518,6 +520,17 @@
         window.butPause= true;
         document.getElementById("ButtonPlay").innerHTML = "";
         console.log("popCorn");
+        var v = document.getElementById( "ourvideo" );;
+
+        // Listen for ended event
+        v.addEventListener( "ended", function( e ) {
+
+            butPause= true;
+            //document.getElementById("ButtonPlay").innerHTML = "";
+            document.getElementById("ButtonPlay").style.backgroundPosition = "0px -7px";
+            videoPop.currentTime(timeValue);
+
+        }, false );
 
 
         var final=inici + tempsEntre37 -0.1;
@@ -647,7 +660,7 @@ function hideMenu(){
 
 </head>
 <body class="webdoc" onload= "responsive()">
-  <div class="typewriterContainer"><h1 id="typewriter">Atenció catalans</h1></div>
+  <div class="typewriterContainer"><h1 id="typewriter"></h1></div>
   <aside  id="menu">
   <div class="menu-container">
   <div id="title-container"><h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1></font>
@@ -658,7 +671,7 @@ function hideMenu(){
   <div  class="counter"><span id="total_morts">0 </span> victimes</div>
   <hr class="line"></hr>
   <div style="text-align:center">
-  <video height="270" width="auto" id="ourvideo" controls>
+  <video height="270" width="auto" id="ourvideo" >
         <source src="BOMBES_TEMPS.mp4" type="video/mp4" >
   </video>
   </div>
