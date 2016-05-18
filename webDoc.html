@@ -259,19 +259,20 @@
             end: endTime,
             onStart: function() {
 
-              var pos=(startTime - iniciFixe)/tempsEntre + 1;
-              $( "#slider" ).slider( "value", pos );
+              document.getElementById('typewriter').innerHTML = "";
+              $( "#slider" ).slider( "value", diaBomb+1 );
               imprimir(diaBomb, posicions);
 
             }
           });
 
       }
-      function iniciVideo(popTime, endTime){
+      //CANVIS PER PASE FRANCESC
+      function iniciVideo(popTime){
           //TODO Zoom mobil
-        popTime.code({
+        popTime.code({//INICI SENSE TEXT
             start: 0,
-            end: endTime,
+            end: 2,
             onStart: function() {
 
               $( "#slider" ).slider( "value", 0 );
@@ -281,7 +282,154 @@
               document.getElementById("dataAct").innerHTML ="";
               map.setView([41.386910, 2.193483], 13);
             }
+        });
+        popTime.code({//INICI SENSE TEXT
+            start: 2,
+            end: 4,
+            onStart: function() {
+                //typewrite
+                var str = "Atenció catalans,",
+                    i = 0,
+                    isTag,
+                    text;
+
+                (function type() {
+                    text = str.slice(0, ++i);
+                    if (text === str) return;
+
+                    document.getElementById('typewriter').innerHTML = text;
+
+                    var char = text.slice(-1);
+                    if( char === '<' ) isTag = true;
+                    if( char === '>' ) isTag = false;
+
+                    if (isTag) return type();
+                    setTimeout(type, 50);
+                }());
+
+              $( "#slider" ).slider( "value", 0 );
+              assetLayerGroup.clearLayers();
+              foratLayerGroup.clearLayers();
+              document.getElementById("total_morts").innerHTML = 0;
+              document.getElementById("dataAct").innerHTML ="";
+              map.setView([41.386910, 2.193483], 13);
+            }
           });
+          popTime.code({//INICI SENSE TEXT
+              start: 4,
+              end: 6,
+              onStart: function() {
+                  //typewrite
+                  var str = "hi ha perill de bombardeig.",
+                      i = 0,
+                      isTag,
+                      text;
+
+                  (function type() {
+                      text = str.slice(0, ++i);
+                      if (text === str) return;
+
+                      document.getElementById('typewriter').innerHTML = text;
+
+                      var char = text.slice(-1);
+                      if( char === '<' ) isTag = true;
+                      if( char === '>' ) isTag = false;
+
+                      if (isTag) return type();
+                      setTimeout(type, 50);
+                  }());
+
+                $( "#slider" ).slider( "value", 0 );
+                assetLayerGroup.clearLayers();
+                foratLayerGroup.clearLayers();
+                document.getElementById("total_morts").innerHTML = 0;
+                document.getElementById("dataAct").innerHTML ="";
+                map.setView([41.386910, 2.193483], 13);
+              }
+            });
+            popTime.code({//INICI SENSE TEXT
+                start: 6,
+                end: 10,
+                onStart: function() {
+                    //typewrite
+                    var str = "Aneu als vostres refugis amb calma i serenitat,",
+                        i = 0,
+                        isTag,
+                        text;
+
+                    (function type() {
+                        text = str.slice(0, ++i);
+                        if (text === str) return;
+
+                        document.getElementById('typewriter').innerHTML = text;
+
+                        var char = text.slice(-1);
+                        if( char === '<' ) isTag = true;
+                        if( char === '>' ) isTag = false;
+
+                        if (isTag) return type();
+                        setTimeout(type, 50);
+                    }());
+
+                  $( "#slider" ).slider( "value", 0 );
+                  assetLayerGroup.clearLayers();
+                  foratLayerGroup.clearLayers();
+                  document.getElementById("total_morts").innerHTML = 0;
+                  document.getElementById("dataAct").innerHTML ="";
+                  map.setView([41.386910, 2.193483], 13);
+                }
+              });
+              popTime.code({//INICI SENSE TEXT
+                  start: 10,
+                  end: 13,
+                  onStart: function() {
+                      //typewrite
+                      var str = "la Generalitat vetlla per vosaltres.",
+                          i = 0,
+                          isTag,
+                          text;
+
+                      (function type() {
+                          text = str.slice(0, ++i);
+                          if (text === str) return;
+
+                          document.getElementById('typewriter').innerHTML = text;
+
+                          var char = text.slice(-1);
+                          if( char === '<' ) isTag = true;
+                          if( char === '>' ) isTag = false;
+
+                          if (isTag) return type();
+                          setTimeout(type, 50);
+                      }());
+
+                    $( "#slider" ).slider( "value", 0 );
+                    assetLayerGroup.clearLayers();
+                    foratLayerGroup.clearLayers();
+                    document.getElementById("total_morts").innerHTML = 0;
+                    document.getElementById("dataAct").innerHTML ="";
+                    map.setView([41.386910, 2.193483], 13);
+                  }
+                });
+                //TODO: Despres de typewrite
+                popTime.code({//INICI SENSE TEXT
+                    start: 13,
+                    end: 17,
+                    onStart: function() {
+                        //typewrite
+
+
+                      document.getElementById('typewriter').innerHTML = "";
+
+                      $( "#slider" ).slider( "value", 0 );
+                      assetLayerGroup.clearLayers();
+                      foratLayerGroup.clearLayers();
+                      document.getElementById("total_morts").innerHTML = 0;
+                      document.getElementById("dataAct").innerHTML ="";
+                      map.setView([41.386910, 2.193483], 13);
+                    }
+                  });
+
 
       }
       function finalVideo(popTime, startTime, endTime){
@@ -290,7 +438,7 @@
             start: startTime,
             end: endTime,
             onStart: function() {
-
+                document.getElementById('typewriter').innerHTML = "";
               $( "#slider" ).slider( "value", 20 );
               assetLayerGroup.clearLayers();
               foratLayerGroup.clearLayers();
@@ -320,6 +468,7 @@
       }
       window.posicioCamara;
       // ensure the web page (DOM) has loaded
+      //CANVIAT PER FRANCES
       document.addEventListener("DOMContentLoaded", function () {
           var w = window.innerWidth;
           if (w <1024){//Mobil version
@@ -332,15 +481,35 @@
             //videoPop.play();
             posicioCamara=posicioEscriptori;
           }
-
+        window.iniciFixe= 17.0;
+        var inici= iniciFixe;
+        window.tempsEntre37=7;
+        window.tempsEntre38=7.36;
+        window.tempsEntre39=12;
+        window.finalFixe=6;
            // Create a popcorn instance by calling the Youtube player plugin
         var videoPop = Popcorn( "#ourvideo" );
         $( "#slider" ).slider({
           max:20,
           min: 0,
           stop: function( event, ui ) {
-            var calcul=iniciFixe+ (ui.value - 1) * tempsEntre;
-            videoPop.currentTime(calcul);
+             //TODO: Posar cada un a Harcode
+             var timeValue;
+
+             if (ui.value===0){
+                 timeValue=0;
+             }else if(ui.value===20){
+                 timeValue=168;
+             }else if(ui.value<4){
+                 timeValue=iniciFixe+(ui.value-1)*tempsEntre37;
+             }else if(ui.value<18){
+                 timeValue=41+ (ui.value-4)*tempsEntre38;
+             }else{
+                 timeValue=144   + tempsEntre39*(ui.value-18);
+             }
+
+            //var calcul=iniciFixe+ (ui.value - 1) * tempsEntre;
+            videoPop.currentTime(timeValue);
 
           }
 
@@ -350,70 +519,68 @@
         document.getElementById("ButtonPlay").innerHTML = "";
         console.log("popCorn");
 
-        window.iniciFixe= 4.8;
-        var inici= iniciFixe;
-        window.tempsEntre=7;
-        var final=inici + tempsEntre -0.1;
-        iniciVideo(videoPop, iniciFixe- 0.1);
+
+        var final=inici + tempsEntre37 -0.1;
+        iniciVideo(videoPop);
         //TODO INICIAL POPUP
         simplificat(videoPop,inici, final, 0, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre37;
+        final= inici + tempsEntre37 -0.1;
         simplificat(videoPop,inici, final, 1, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre37;
+        final= inici + tempsEntre37 -0.1;
         simplificat(videoPop,inici, final, 2, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre37;
+        final= inici + tempsEntre37 -0.1;
         simplificat(videoPop,inici, final, 3, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre37;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 4,posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 5,posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 6, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         //17-3-1938
         simplificat(videoPop,inici, final, 7,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 8, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 9,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 10, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 11, posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 12,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 13,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 14,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 15,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre38 -0.1;
         simplificat(videoPop,inici, final, 16,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre38;
+        final= inici + tempsEntre39 -0.1;
         simplificat(videoPop,inici, final, 17,   posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre39;
+        final= inici + tempsEntre39 -0.1;
         simplificat(videoPop,inici, final, 18,  posicioCamara);
-        inici=inici + tempsEntre;
-        final= inici + tempsEntre -0.1;
+        inici=inici + tempsEntre39;
+        final= inici + 6 -0.1;//6 segons a la conclusió
         finalVideo(videoPop,inici, final+inici);
         //TODO FINAL POPCORN
         window.videoProperties =videoPop;
@@ -450,19 +617,26 @@ function hideMenu(){
     document.getElementById("expand_bar").style.display = "block";
 }
 
-function responsive(){
-console.log("responsive");
+/*function responsive(){
   if (w <1024){
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("expand_bar").style.display = "block";
-
+    var videoResponsive = document.getElementById("ourvideo");
+    videoResponsive.remove();
+    var titleContainer = document.getElementById("title-container");
+    titleContainer.remove();
+    var separator = document.getElementsByTagName("hr");
+    for (var i = separator.length -1 ; i >=0; i--)
+      {
+        separator[i].parentNode.removeChild(separator[i]);
+      }
+    var menu = getElementById("menu");
+    menu.style.bottom = "65px"
   }else{
     document.getElementById("menu").style.display = "block";
     document.getElementById("expand_bar").style.display = "none";
 
   }
 
-}
+}*/
 
 
 
@@ -473,22 +647,19 @@ console.log("responsive");
 
 </head>
 <body class="webdoc" onload= "responsive()">
-  <div id="expand_bar">
-  <h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1>
-  <div class="expand_button" onclick="expandMenu()"></div>
-  </div>
+  <div class="typewriterContainer"><h1 id="typewriter">Atenció catalans</h1></div>
   <aside  id="menu">
   <div class="menu-container">
-  <div onclick="hideMenu()"><h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1></font>
+  <div id="title-container"><h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1></font>
    </div>
-   <div style="display: inline-block;"><h2 class="data" id="dataAct"></h2></div>
+   <div class="data-container"><span class="data" id="dataAct"></span></div>
    <hr class="line"></hr>
 
   <div  class="counter"><span id="total_morts">0 </span> victimes</div>
   <hr class="line"></hr>
   <div style="text-align:center">
   <video height="270" width="auto" id="ourvideo" controls>
-        <source src="bombesTmp.mp4" type="video/mp4" >
+        <source src="BOMBES_TEMPS.mp4" type="video/mp4" >
   </video>
   </div>
    <hr class="line"></hr>

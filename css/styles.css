@@ -131,6 +131,10 @@
     background-color: #000;
 }
 
+.data-container{
+  display:inline-block;
+}
+
 #timeline {
   padding: 10px;
   position:absolute;
@@ -215,6 +219,11 @@ h1.subtitle{
 .data{
   float:left;
   margin-right:10px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #fff;
+  margin:0;
+  font-weight:normal;
+  font-size: 32px;
 }
 
 
@@ -321,4 +330,49 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
     width: 0px;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.typewriterContainer{
+      z-index: 2;
+    margin: 0px auto;
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    font-size: 244%;
+
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    #menu {
+        width: 100%;
+        bottom:65px;
+    }
+    .menu-container{
+      padding: 15px 10px;
+      height:25px;
+    }
+     .menu-container h2{
+      font-size:100%;
+    }
+    .counter{
+      font-size:100%;
+      float:right;
+    }
+    .data{
+      font-size:100%;
+    }
+    hr{
+      display:none;
+    }
+    .title{
+      display:none;
+    }
+    #ourvideo{
+      display:none;
+    }
+    .typewriterContainer{
+        font-size: 100%;
+    }
 }
