@@ -165,7 +165,6 @@
   });
       window.totalMorts=0;
       function onEachFeature(feature, layer) {
-        mortsActuals =feature.properties.morts;
         dataActual = feature.properties.data;
         totalMorts =feature.properties.morts_totals;
         if (feature.properties && feature.properties.popupContent) {
@@ -183,10 +182,10 @@
        layer.bindPopup(popupContent);
       }
 
-      function imprimir(diaBomb, lat, lon, zoom){
+      function imprimir(diaBomb, posicions){
         assetLayerGroup.clearLayers();
         foratLayerGroup.clearLayers();
-        map.setView([posicioEscriptori[diaBomb][0],posicioEscriptori[diaBomb][1]], posicioEscriptori[diaBomb][2]);
+        map.setView([posicions[diaBomb][0],posicions[diaBomb][1]], posicions[diaBomb][2]);
         for(var i=0; i<diaBomb; i++){
           var refuguis = L.geoJson(totesBombes[i], {
 
@@ -204,7 +203,6 @@
         }
 
         //dadesAqui=JSON.parse(diaBomb);
-        window.mortsActuals;
         window.dataActual;
         setTimeout(function() {
 
@@ -229,13 +227,7 @@
           }).addTo(assetLayerGroup);
 
           document.getElementById("dataAct").innerHTML = dataActual;
-          document.getElementById("mort_dia").innerHTML = '(<span id="morts">0 </span>)';
-          //document.getElementById("morts").innerHTML = mortsActuals;
-          //if(mortsActuals === "sense pre")
-          //totalMorts= Number(totalMorts) + Number(mortsActuals);
-          //document.getElementById("numTotal").innerHTML =totalMorts;
 
-          $('#morts').animateNumber({ number: mortsActuals });
           setTimeout(function() {
             coorsLayer
             assetLayerGroup.clearLayers();
@@ -261,7 +253,7 @@
 
       }
 
-      function simplificat(popTime, startTime, endTime, diaBomb, lat, lon, zoom){
+      function simplificat(popTime, startTime, endTime, diaBomb, posicions){
         popTime.code({
             start: startTime,
             end: endTime,
@@ -269,13 +261,14 @@
 
               var pos=(startTime - iniciFixe)/tempsEntre + 1;
               $( "#slider" ).slider( "value", pos );
-              imprimir(diaBomb, lat,lon, zoom);
+              imprimir(diaBomb, posicions);
 
             }
           });
 
       }
       function iniciVideo(popTime, endTime){
+          //TODO Zoom mobil
         popTime.code({
             start: 0,
             end: endTime,
@@ -284,15 +277,15 @@
               $( "#slider" ).slider( "value", 0 );
               assetLayerGroup.clearLayers();
               foratLayerGroup.clearLayers();
-              document.getElementById("mort_dia").innerHTML = '(<span id="morts">0 </span>)';
               document.getElementById("total_morts").innerHTML = 0;
-              document.getElementById("dataAct").innerHTML ="10 de Novembre de 1936";
+              document.getElementById("dataAct").innerHTML ="";
               map.setView([41.386910, 2.193483], 13);
             }
           });
 
       }
       function finalVideo(popTime, startTime, endTime){
+          //TODO Zoom mobil
         popTime.code({
             start: startTime,
             end: endTime,
@@ -316,7 +309,6 @@
 
                 }).addTo(foratLayerGroup);
               }
-            document.getElementById("mort_dia").innerHTML = " ";
             document.getElementById("dataAct").innerHTML =" ";
             totalMorts = 2404;
             $('#total_morts').animateNumber({ number: totalMorts });
@@ -344,70 +336,73 @@
         videoPop.pause();
         window.butPause= true;
         document.getElementById("ButtonPlay").innerHTML = "";
-        posicioEscriptori=[[41.399904, 2.174064, 15], [41.396346, 2.200537, 13], [41.379603, 2.190318, 15], [41.382750, 2.181187, 15],[41.388804, 2.169091, 14], [41.384248, 2.177374, 16], [41.384201, 2.192756, 15], [41.382414, 2.186571, 14], [41.387501, 2.174142, 14], [41.380807, 2.163395, 15], [41.376773, 2.195088, 13], [41.384428, 2.215000, 13], [41.382899, 2.186504, 15], [41.373616, 2.180791, 15], [41.364195, 2.189822, 15], [41.382430, 2.185886, 15], [41.381634, 2.175529, 14], [41.370943, 2.189986, 14], [41.380604, 2.194229, 14]]
+        console.log("popCorn");
+        posicioEscriptori=[[41.399904, 2.174064, 15], [41.396346, 2.200537, 13], [41.379603, 2.190318, 15], [41.382750, 2.181187, 15],[41.388804, 2.169091, 14], [41.384248, 2.177374, 16], [41.384201, 2.192756, 15], [41.382414, 2.186571, 14], [41.387501, 2.174142, 14], [41.380807, 2.163395, 15], [41.376773, 2.195088, 13], [41.384428, 2.215000, 13], [41.382899, 2.186504, 15], [41.373616, 2.180791, 15], [41.364195, 2.189822, 15], [41.382430, 2.185886, 15], [41.381634, 2.175529, 14], [41.370943, 2.189986, 14], [41.380604, 2.194229, 14]];
+        posicioMobil=[[41.403840, 2.164805, 14],[41.394644, 2.175389 , 12],[41.382340, 2.190211, 15],[41.383104, 2.171746, 14],[41.396816, 2.161891, 13],[41.384924, 2.175711, 16],[41.387315, 2.186351, 15],[41.389462, 2.168375, 13],[41.389863, 2.165140, 13],[41.378847, 2.155605, 15],[41.379035, 2.179038, 12],[41.401197, 2.194679, 12],[41.385900, 2.178292, 14],[41.376316, 2.176210, 14],[41.368848, 2.180480, 14],[41.385363, 2.179825, 14],[41.386711, 2.164623, 13],[41.378939, 2.176564, 13],[41.388623, 2.187424, 13]];
         //videoPop.play();
+        posicioCamara=posicioMobil;
         window.iniciFixe= 4.8;
         var inici= iniciFixe;
         window.tempsEntre=7;
         var final=inici + tempsEntre -0.1;
         iniciVideo(videoPop, iniciFixe- 0.1);
         //TODO INICIAL POPUP
-        simplificat(videoPop,inici, final, 0, 41.401282, 2.179085, 14);
+        simplificat(videoPop,inici, final, 0, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 1, 41.381260, 2.182768, 14);
+        simplificat(videoPop,inici, final, 1, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 2, 41.384122, 2.194089, 14);
+        simplificat(videoPop,inici, final, 2, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 3, 41.382750, 2.181187, 15);
+        simplificat(videoPop,inici, final, 3, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 4, 41.374999, 2.169065, 15);
+        simplificat(videoPop,inici, final, 4,posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 5, 41.386049, 2.184796, 16);
+        simplificat(videoPop,inici, final, 5,posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 6, 41.386077, 2.191147, 15);
+        simplificat(videoPop,inici, final, 6, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
         //17-3-1938
-        simplificat(videoPop,inici, final, 7,  41.382615, 2.171243, 14);
+        simplificat(videoPop,inici, final, 7,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 8,  41.382615, 2.171243, 14);
+        simplificat(videoPop,inici, final, 8, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 9,  41.382615, 2.171243, 14);
+        simplificat(videoPop,inici, final, 9,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 10, 41.362932, 2.208380, 14);
+        simplificat(videoPop,inici, final, 10, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 11, 41.387446, 2.206292, 14);
+        simplificat(videoPop,inici, final, 11, posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 12,  41.387446, 2.206292, 14);
+        simplificat(videoPop,inici, final, 12,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 13,  41.364195, 2.189822, 14);
+        simplificat(videoPop,inici, final, 13,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 14,  41.364195, 2.189822, 14);
+        simplificat(videoPop,inici, final, 14,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 15,  41.382430, 2.185886, 14);
+        simplificat(videoPop,inici, final, 15,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 16,  41.382615, 2.171243, 14);
+        simplificat(videoPop,inici, final, 16,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 17,   41.364195, 2.189822, 14);
+        simplificat(videoPop,inici, final, 17,   posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
-        simplificat(videoPop,inici, final, 18,  41.386167, 2.194698, 14);
+        simplificat(videoPop,inici, final, 18,  posicioCamara);
         inici=inici + tempsEntre;
         final= inici + tempsEntre -0.1;
         finalVideo(videoPop,inici, final+inici);
@@ -447,14 +442,16 @@ function hideMenu(){
 }
 
 function responsive(){
-
+console.log("responsive");
   if (w <1024){
     document.getElementById("menu").style.display = "none";
     document.getElementById("expand_bar").style.display = "block";
+    window.esMobil=true;
   }else{
     document.getElementById("menu").style.display = "block";
     document.getElementById("expand_bar").style.display = "none";
-
+    console.log("no mobil");
+    window.esMobil=false;
   }
 
 }
@@ -476,7 +473,7 @@ function responsive(){
   <div class="menu-container">
   <div onclick="hideMenu()"><h1 class="title">Bombardeigs <strong>BCN 1937/39</strong></h1></font>
    </div>
-   <div><h2 class="data" id="dataAct">10 de Novembre de 1936</h2><h2 class="morts_dia" id="mort_dia">(<span id="morts">0 </span>)</h2></div>
+   <div style="display: inline-block;"><h2 class="data" id="dataAct"></h2></div>
    <hr class="line"></hr>
 
   <div  class="counter"><span id="total_morts">0 </span> victimes</div>

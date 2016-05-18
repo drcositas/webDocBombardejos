@@ -91,7 +91,7 @@
           attributionControl:false,
           zoomControl: false,
           maxBounds: bounds,
-          maxZoom: 18,
+          maxZoom: 17,
           minZoom: 12
         }).setView([41.386837, 2.169708], 14);//Per possar la orientacio inicial
 
@@ -185,7 +185,7 @@
       autoType: false,
       autoCollapse: true,
       minLength: 2
-    }) ;
+    });
       map.addControl( searcherControl);
 
 
@@ -212,10 +212,12 @@
 
       function onEachFeatureBomb(feature, layer) {
         var popupContent = "Data: "+feature.properties.data+"<br>Hora: "+feature.properties.hora+"";
-
-
-
-        layer.bindPopup(popupContent);
+        var customOptions =
+            {
+            'maxWidth': '500',
+            'className' : 'custom'
+            };
+        layer.bindPopup(popupContent,customOptions);
       }
       function onEachFeature(feature, layer) {
 
@@ -229,26 +231,7 @@
           layer.bindPopup(popupContent,customOptions);
 
       }
-
-
       var refugiLay = L.layerGroup();
-      L.geoJson(refugi, {
-
-        style: function (feature) {
-          return feature.properties && feature.properties.style;
-        },
-
-        pointToLayer: function (feature, latlng) {
-                var markerBombs= L.marker(latlng, {
-                  icon: refugiIcon
-
-
-                });
-
-              return markerBombs;
-        }
-
-      }).addTo(refugiLay);
       L.geoJson(refugiDestacat, {
 
         style: function (feature) {
@@ -267,7 +250,27 @@
               return markerBombs;
         }
 
-      }).addTo(refugiLay);
+    }).addTo(refugiLay);
+
+
+      L.geoJson(refugi, {
+
+        style: function (feature) {
+          return feature.properties && feature.properties.style;
+        },
+
+        pointToLayer: function (feature, latlng) {
+                var markerBombs= L.marker(latlng, {
+                  icon: refugiIcon
+
+
+                });
+
+              return markerBombs;
+        }
+
+    }).addTo(refugiLay);
+
       var bombLay = L.layerGroup();
       var bombesPunts = L.geoJson(bombesMulti, {
 
@@ -309,8 +312,17 @@
     </script>
 
 </head>
+
 <body class="navegable">
-  <div  id="map"></div>
+
+  <div  style="position: relative;" id="map"></div>
+  <div id="icones" style="position: absolute; top:10px; left:75px">
+    <a href="http://www.btv.cat/"  target="_blank"><img src="img/btv.png" style=" width:30px"></a>
+
+  </div>
+  <div id="icones" style="position: absolute; top:10px; left:105px">
+     <a href="https://twitter.com/btvdatalab"  target="_blank"><img src="img/datalab.png" style=" width:30px"></a>
+  </div>
 </body>
 
 </html>

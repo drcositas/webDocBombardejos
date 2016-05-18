@@ -34,7 +34,55 @@
 .custom .leaflet-popup-content-wrapper {
     background: #000000;
     color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size:15px;
     border-radius: 0px;
+}
+.custom a{
+    font-family: 'Titillium Web', sans-serif;
+    text-decoration:none;
+    color: #fff;
+    font-size:20px;
+    margin:0;
+    font-weight:normal;
+}
+.custom a:hover {
+    color: #000;
+    background: #fff;
+}
+.custom h1{
+    font-family: 'Titillium Web';
+    font-size:25px;
+    color: #fff;
+    font-weight:normal;
+}
+.custom img{
+    width: 100%;
+}
+#icones {
+    opacity: 0.3;
+    filter: alpha(opacity=40);
+    /* For IE8 and earlier */
+    background: rgb(0, 0, 0) transparent;
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.0);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+#icones:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    /* For IE8 and earlier */
+    background: rgb(0, 0, 0) transparent;
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.0);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
 #down{

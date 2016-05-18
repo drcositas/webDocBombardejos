@@ -6930,23 +6930,6 @@ var refugi ={
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    2.16640746962637,
-                    41.3711996504648,
-                    0
-                ]
-            },
-            "properties": {
-                "name": "REFUGI ANTIAERI R.0307",
-                "NOM": "REFUGI ANTIAERI R.0307",
-                "Adreça": "Nou de la Rambla, Carrer.",
-                "Districte": "Sants-Montjuïc"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     2.15857433307641,
                     41.3715059971769,
                     0
