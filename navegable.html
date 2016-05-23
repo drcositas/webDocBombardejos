@@ -31,15 +31,14 @@
 
       }
 
-      .leaflet-control-layers{
-          top: 10px;
-          border-radius:0px;
-          width:60px;
-          bottom:35px;
-      }
+      
 
       .leaflet-control-zoom leaflet-bar leaflet-control{
           border-radius:0px;
+      }
+
+      .leaflet-bottom .leaflet-control-scale {
+          opacity: 1;
       }
 
       #down{
@@ -194,7 +193,7 @@
       window.holeBombIcon = L.icon({
         iconUrl: 'img/hole.png',
         iconSize: [20, 20],
-        iconAnchor: [20, 20],
+        iconAnchor: [10, 10],
         popupAnchor: [0, -28]
       });
       window.refugiDestacatIcon = L.icon({

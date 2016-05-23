@@ -122,6 +122,12 @@
 
       map.addLayer(martorell, Esri_WorldImagery);
        //Crar icona a partir d'una foto
+       window.animBombIcon = L.icon({
+         iconUrl: 'img/bomba_anim.gif',
+         iconSize: [92, 213],
+         iconAnchor: [46, 121],
+         popupAnchor: [0, -28]
+       });
       window.bombIcon = L.icon({
         iconUrl: 'img/bomb.png',
         iconSize: [20, 30],
@@ -137,7 +143,7 @@
       window.holeBombIcon = L.icon({
         iconUrl: 'img/hole.png',
         iconSize: [20, 20],
-        iconAnchor: [20, 20],
+        iconAnchor: [10, 10],
         popupAnchor: [0, -28]
       });
 
@@ -214,9 +220,7 @@
 
             pointToLayer: function (feature, latlng) {
               var markerBombs= L.marker(latlng, {
-                icon: bombIcon,
-                bounceOnAdd: true,
-                bounceOnAddOptions: {duration: 1600, height: 200}
+                icon: animBombIcon,
 
 
               });
@@ -228,26 +232,10 @@
 
           document.getElementById("dataAct").innerHTML = dataActual;
 
-          setTimeout(function() {
-            coorsLayer
-            assetLayerGroup.clearLayers();
-            var coorsLayerExp = L.geoJson(totesBombes[diaBomb], {
 
-            pointToLayer: function (feature, latlng) {
-              var markerBombs= L.marker(latlng, {
-                icon: expIcon
-
-
-              });
-              return markerBombs;
-            },
-            onEachFeature: onEachFeature
-
-          }).addTo(assetLayerGroup);
-            assetLayerGroup.removeLayer(coorsLayer);
 
             $('#total_morts').animateNumber({ number: totalMorts });
-          }, 1600);
+
         }, 1500);
 
 

@@ -59,6 +59,9 @@
 .custom img{
     width: 100%;
 }
+.leaflet-bottom .leaflet-control-scale {
+    opacity: 0;
+}
 #icones {
     opacity: 0.3;
     filter: alpha(opacity=40);
@@ -121,6 +124,7 @@
     right: 0px;
 }
 
+
 .menu-container{
     position: relative;
     z-index: 1111;
@@ -128,7 +132,7 @@
     width: auto;
     padding: 20px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-    background-color: #000;
+    background-color: rgba(0,0,0,0.9);
 }
 
 .data-container{
@@ -144,6 +148,7 @@
   left: 0px;
   bottom: 15px;
   width:50%;
+  opacity:0.9;
 }
 
 h1{
@@ -247,7 +252,7 @@ h1.subtitle{
 }
 
 .leaflet-control-layers{
-  background-color:#000 !important;
+  background-color:rgba(0,0,0,0.9); !important;
 }
 
 .leaflet-control-layers-list{
@@ -347,7 +352,7 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 @media screen and (max-width: 1024px) {
     #menu {
         width: 100%;
-        bottom:65px;
+        bottom: 35px;
     }
     .menu-container{
       padding: 15px 10px;
@@ -356,13 +361,30 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
      .menu-container h2{
       font-size:100%;
     }
+    #timeline {
+        opacity:0.9;
+        bottom: -15px;
+    }
+    .leaflet-control-layers{
+      width:30px;
+      opacity:0.9;
+    }
+    .leaflet-control-layers-list{
+      opacity: 0.9;
+    }
+
+    .leaflet-control-layers-toggle{
+      width: 30px !important;
+    }
     .counter{
       font-size:100%;
       float:right;
     }
     .data{
       font-size:100%;
+
     }
+
     hr{
       display:none;
     }
@@ -374,5 +396,11 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
     }
     .typewriterContainer{
         font-size: 100%;
+
+
+    }
+    #typewriter{
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
