@@ -73,6 +73,8 @@
     padding: 10px;
     color: #fff;
     display: block;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
     top:70px;
     right: 50px;
     background-image:  url("../img/popupInfo.png");
@@ -80,17 +82,7 @@
     background-repeat: no-repeat;
 
 }
-#soundffIcon{
-    opacity: 1.0;
-    position: absolute;
-    width: 100px;
-    bottom: :70px;
-    left: 50px;
-    background-image:  url("../img/sound.png");
-    background-size:100%;
-    background-repeat: no-repeat;
 
-}
 #soundIcon{
     opacity: 0.0;
     position: absolute;
@@ -466,8 +458,10 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
         height: 40px;
         bottom: 100px;
         left: 35px;
-
-
+    }
+    #popupTuto{
+        top: 60px;
+        right: 30px;
     }
 
 }
