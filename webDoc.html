@@ -632,12 +632,15 @@
       function funcButPlay(){
         if(butPause){
           videoProperties.play();
+          timeoutSound();
+
           butPause= false;
           //document.getElementById("ButtonPlay").innerHTML = "";
           document.getElementById("ButtonPlay").style.backgroundPosition = "-22px -7px";
         }else{
           videoProperties.pause();
           butPause= true;
+          document.getElementById("soundIcon").style.opacity = 0.0;
           //document.getElementById("ButtonPlay").innerHTML = "";
           document.getElementById("ButtonPlay").style.backgroundPosition = "0px -7px";
         }
@@ -674,6 +677,22 @@ function hideMenu(){
     document.getElementById("menu").style.opacity = 0;
     mostrat=false;
     //document.getElementById("expand_bar").style.display = "block";
+}
+
+function timeoutSound(){
+        tTimeout = setTimeout(timeoutSound1, 200);
+        tTimeout = setTimeout(timeoutSound2, 300);
+        tTimeout = setTimeout(timeoutSound3, 200);
+  //document.getElementById("expand_bar").style.display = "none";
+}
+function timeoutSound1(){
+  document.getElementById("soundIcon").style.opacity = 0.75;
+}
+function timeoutSound2(){
+  document.getElementById("soundIcon").style.opacity = 0.5;
+}
+function timeoutSound3(){
+document.getElementById("soundIcon").style.opacity = 0.15;
 }
 
 /*function responsive(){
@@ -733,10 +752,12 @@ function hideMenu(){
  </div>
   <div style="position: relative;" id="map"></div>
   <div  id="icone" style="position: absolute;">
-    <a  href="../../ca/bombardeigs-a-barcelona/"  target="_blank"><img src="img/btv.png" a>
+    <a  href="../../ca/bombardeigs-a-barcelona/"  ><img src="img/btv.png" a>
 
   </div>
+  <div id="soundIcon"></div>
 
+  </div>
 
 </body>
 

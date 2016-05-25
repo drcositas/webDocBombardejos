@@ -80,11 +80,32 @@
     background-repeat: no-repeat;
 
 }
-#popupTuto .bg {
-
-    opacity: .4;
+#soundffIcon{
+    opacity: 1.0;
+    position: absolute;
+    width: 100px;
+    bottom: :70px;
+    left: 50px;
+    background-image:  url("../img/sound.png");
+    background-size:100%;
+    background-repeat: no-repeat;
 
 }
+#soundIcon{
+    opacity: 0.0;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    bottom: 70px;
+    left: 20px;
+    background-image:  url("../img/sound.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+
+}
+
+
 #icone {
     position: absolute;
     top:10px;
@@ -438,8 +459,15 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
         left:49px;
     }
     #icone img{
-        border:2    ;
         width:150px;
+    }
+    #soundIcon{
+        width: 40px;
+        height: 40px;
+        bottom: 100px;
+        left: 35px;
+
+
     }
 
 }
