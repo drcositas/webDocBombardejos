@@ -145,13 +145,7 @@
       }
       window.maskRetall=L.mask(latLngs);
 
-      map.on('baselayerchange', function(e) {
-        if (e.name === "Antic") {
-          maskRetall.addTo(map);
-        }else{
-          map.removeLayer(maskRetall);
-        }
-      });
+
 
       //-------------------------------
 
@@ -294,32 +288,22 @@
         "Refugis": refugiLay,
         "Bombes" : bombLay
       };
-      var controlLay= L.control.layers(baseMaps, overlayMaps,{
-        collapsed: false
-    });
+      window.controlLay= L.control.layers(baseMaps, overlayMaps);
 
     controlLay.addTo(map);
-    var canviControl=true;
     map.on('baselayerchange', function(e) {
-        if(canviControl){
-            controlLay.removeFrom(map)
-            L.control.layers(baseMaps, overlayMaps).addTo(map);
-            canviControl=false;
+        if (e.name === "Antic") {
+          maskRetall.addTo(map);
+        }else{
+          map.removeLayer(maskRetall);
         }
+        document.getElementById("popupTuto").style.display = "none";
     });
     map.on('overlayadd', function(e) {
-        if(canviControl){
-            controlLay.removeFrom(map)
-            L.control.layers(baseMaps, overlayMaps).addTo(map);
-            canviControl=false;
-        }
+        document.getElementById("popupTuto").style.display = "none";
     });
     map.on('overlayremove', function(e) {
-        if(canviControl){
-            controlLay.removeFrom(map)
-            L.control.layers(baseMaps, overlayMaps).addTo(map);
-            canviControl=false;
-        }
+        document.getElementById("popupTuto").style.display = "none";
     });
 
 
@@ -342,9 +326,12 @@
 
   <div  style="position: relative;" id="map"></div>
   <div  id="icone" style="position: absolute;">
-    <a  href="../../ca/bombardeigs-a-barcelona/"  target="_blank"><img src="img/btv.png" a>
+    <a  href="../../ca/bombardeigs-a-barcelona/"  target="_blank"><img src="img/btv.png" ></a>
 
   </div>
+  <div id="popupTuto">
+      <div style="margin-top:20px">Clica  a aqui</div>
+</div>
 </body>
 
 </html>

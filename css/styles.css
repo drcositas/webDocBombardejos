@@ -66,6 +66,25 @@
 .leaflet-bottom .leaflet-control-scale {
     opacity: 0;
 }
+#popupTuto{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    padding: 10px;
+    color: #fff;
+    display: block;
+    top:70px;
+    right: 50px;
+    background-image:  url("../img/popupInfo.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+
+}
+#popupTuto .bg {
+
+    opacity: .4;
+
+}
 #icone {
     position: absolute;
     top:10px;
