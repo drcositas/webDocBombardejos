@@ -32,6 +32,7 @@
     cursor: default;
     background-color: #484848 !important;
     color: #848484 !important;
+    opacity: 0.9;
 }
 
 .leaflet-control-search.search-load .search-input {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Navegable</title>
+  <title>Mapa Interactius</title>
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
 
       }
 
-      
+
 
       .leaflet-control-zoom leaflet-bar leaflet-control{
           border-radius:0px;
@@ -158,7 +158,7 @@
       var baseMaps = {
         "Antic": martorell,
         "Mapa": OpenStreetMap_BlackAndWhite,
-        "Satel·lit": Esri_WorldImagery
+        "Satèl·lit": Esri_WorldImagery
       };
 
       L.control.scale().addTo(map);
@@ -224,7 +224,7 @@
           popupContent = feature.properties.popUpInfo;
           var customOptions =
               {
-              'maxWidth': '500',
+              'maxWidth': '250',
               'className' : 'custom'
               };
           layer.bindPopup(popupContent,customOptions);
@@ -291,10 +291,36 @@
       }).addTo(bombLay);
 
       var overlayMaps = {
-        "Refuguis": refugiLay,
+        "Refugis": refugiLay,
         "Bombes" : bombLay
       };
-      L.control.layers(baseMaps, overlayMaps).addTo(map);
+      var controlLay= L.control.layers(baseMaps, overlayMaps,{
+        collapsed: false
+    });
+
+    controlLay.addTo(map);
+    var canviControl=true;
+    map.on('baselayerchange', function(e) {
+        if(canviControl){
+            controlLay.removeFrom(map)
+            L.control.layers(baseMaps, overlayMaps).addTo(map);
+            canviControl=false;
+        }
+    });
+    map.on('overlayadd', function(e) {
+        if(canviControl){
+            controlLay.removeFrom(map)
+            L.control.layers(baseMaps, overlayMaps).addTo(map);
+            canviControl=false;
+        }
+    });
+    map.on('overlayremove', function(e) {
+        if(canviControl){
+            controlLay.removeFrom(map)
+            L.control.layers(baseMaps, overlayMaps).addTo(map);
+            canviControl=false;
+        }
+    });
 
 
 
@@ -315,12 +341,9 @@
 <body class="navegable">
 
   <div  style="position: relative;" id="map"></div>
-  <div id="icones" style="position: absolute; top:10px; left:75px">
-    <a href="http://www.btv.cat/"  target="_blank"><img src="img/btv.png" style=" width:30px"></a>
+  <div  id="icone" style="position: absolute;">
+    <a  href="../../ca/bombardeigs-a-barcelona/"  target="_blank"><img src="img/btv.png" a>
 
-  </div>
-  <div id="icones" style="position: absolute; top:10px; left:105px">
-     <a href="https://twitter.com/btvdatalab"  target="_blank"><img src="img/datalab.png" style=" width:30px"></a>
   </div>
 </body>
 
