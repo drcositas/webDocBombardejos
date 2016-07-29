@@ -351,7 +351,54 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.4);
   box-shadow: 0 1px 5px rgba(0,0,0,0.4);
   margin-left: 80px;
 }
+#searchIcone{
+    position: absolute;
+    left:10px;
+    top:140px;
+    background-color: #000;
+    display:block;
+    width: 30px;
+    height: 30px;
 
+}
+#searchIconeIn{
+
+
+    background-image: url("../img/bombardeigs_icons.png") no-repeat -70px 0px;
+    width: 100%;
+    height: 100%;
+
+
+}
+#searchBoxDiv{
+    position: absolute;
+    left:10px;
+    top:140px;
+    display:none;
+    padding: 10px;
+    background:#000;
+    border-radius:0px;
+}
+
+#searchIcone:hover ~ #searchBoxDiv {
+    display:block;
+}
+#searchBoxDiv:hover{
+    display:block;
+}
+#searchBox{
+    border-radius:2px;
+    height: 40px;
+
+}
+/*
+#searchBox{
+    position: absolute;
+    left:10px;
+    top:140px;
+    height: 30px;
+}
+*/
 #expand_bar h1{
   float: left;
 }

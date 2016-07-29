@@ -695,26 +695,7 @@ function timeoutSound3(){
 document.getElementById("soundIcon").style.opacity = 0.15;
 }
 
-/*function responsive(){
-  if (w <1024){
-    var videoResponsive = document.getElementById("ourvideo");
-    videoResponsive.remove();
-    var titleContainer = document.getElementById("title-container");
-    titleContainer.remove();
-    var separator = document.getElementsByTagName("hr");
-    for (var i = separator.length -1 ; i >=0; i--)
-      {
-        separator[i].parentNode.removeChild(separator[i]);
-      }
-    var menu = getElementById("menu");
-    menu.style.bottom = "65px"
-  }else{
-    document.getElementById("menu").style.display = "block";
-    document.getElementById("expand_bar").style.display = "none";
 
-  }
-
-}*/
 
 
 
@@ -724,7 +705,7 @@ document.getElementById("soundIcon").style.opacity = 0.15;
     </script>
 
 </head>
-<body class="webdoc" onload= "responsive()">
+<body class="webdoc" >
   <div class="typewriterContainer"><h1 id="typewriter"></h1></div>
   <aside  id="menu">
   <div class="menu-container">
@@ -737,7 +718,9 @@ document.getElementById("soundIcon").style.opacity = 0.15;
   <hr class="line"></hr>
   <div style="text-align:center">
   <video height="270" width="auto" id="ourvideo" >
-        <source src="BOMBES_TEMPS.mp4" type="video/mp4" >
+      <source src="http://www.btv.cat/lab/datalab/recursos/bombradeigs-a-barcelona/BOMBES_DOC.m4v">
+      <source src="http://www.btv.cat/lab/datalab/recursos/bombradeigs-a-barcelona/BOMBES_DOC.webm" type="video/webm">
+      <source src="http://www.btv.cat/lab/datalab/recursos/bombradeigs-a-barcelona/BOMBES_DOC.ogv" type="video/ogg">
   </video>
   </div>
    <hr class="line"></hr>
